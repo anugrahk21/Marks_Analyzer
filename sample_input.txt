@@ -1,0 +1,135 @@
+# Sample Input for GPA Analyzer Testing (Updated Version)
+
+## Test Case 1: Single Term
+Number of terms: 1
+Term 1 subjects: 4
+Subject 1: Data Structures, Grade: A, Credit: 4
+Subject 2: Mathematics, Grade: A+, Credit: 3
+Subject 3: Physics, Grade: B+, Credit: 3
+Subject 4: Chemistry, Grade: A, Credit: 4
+
+Expected TGPA: 8.07
+Expected CGPA: 8.07
+
+## Test Case 2: Multiple Terms (3 Terms)
+Number of terms: 3
+
+Term 1 subjects: 3
+- Computer Networks, Grade: O, Credit: 4
+- Database Systems, Grade: A+, Credit: 3
+- Software Engineering, Grade: A, Credit: 4
+Expected Term 1 TGPA: 9.09
+Expected CGPA after Term 1: 9.09
+
+Term 2 subjects: 4
+- Operating Systems, Grade: A, Credit: 4
+- Algorithm Design, Grade: B+, Credit: 3
+- Computer Graphics, Grade: A+, Credit: 3
+- Web Development, Grade: A, Credit: 3
+Expected Term 2 TGPA: 8.15
+Expected CGPA after Term 2: 8.58
+
+Term 3 subjects: 3
+- Machine Learning, Grade: A+, Credit: 4
+- Artificial Intelligence, Grade: O, Credit: 3
+- Data Mining, Grade: A, Credit: 3
+Expected Term 3 TGPA: 9.10
+Expected CGPA after Term 3: 8.79
+
+## Test Case 3: Progressive Performance (5 Terms)
+Number of terms: 5
+
+Term 1: Average performance
+- Subject 1, Grade: C, Credit: 3
+- Subject 2, Grade: B, Credit: 3
+- Subject 3, Grade: B+, Credit: 4
+Expected TGPA: 6.0, CGPA: 6.0
+
+Term 2: Improved performance
+- Subject 1, Grade: B+, Credit: 3
+- Subject 2, Grade: A, Credit: 4
+- Subject 3, Grade: A, Credit: 3
+Expected TGPA: 7.6, CGPA: 6.86
+
+Term 3: Excellent performance
+- Subject 1, Grade: A+, Credit: 4
+- Subject 2, Grade: O, Credit: 3
+- Subject 3, Grade: A, Credit: 3
+Expected TGPA: 9.0, CGPA: 7.56
+
+Term 4: Consistent performance
+- Subject 1, Grade: A, Credit: 4
+- Subject 2, Grade: A+, Credit: 3
+- Subject 3, Grade: A, Credit: 3
+Expected TGPA: 8.3, CGPA: 7.76
+
+Term 5: Outstanding performance
+- Subject 1, Grade: O, Credit: 4
+- Subject 2, Grade: O, Credit: 3
+- Subject 3, Grade: A+, Credit: 3
+Expected TGPA: 9.7, CGPA: 8.14
+
+## Test Case 4: Declining Performance
+Number of terms: 3
+
+Term 1: Excellent start
+- All subjects with Grade: A+, Credit: 3 each
+Expected TGPA: 9.0, CGPA: 9.0
+
+Term 2: Decline
+- Subject 1, Grade: B, Credit: 3
+- Subject 2, Grade: C, Credit: 3
+- Subject 3, Grade: B+, Credit: 4
+Expected TGPA: 5.9, CGPA: 7.3
+
+Term 3: Further decline
+- Subject 1, Grade: D, Credit: 3
+- Subject 2, Grade: E, Credit: 3
+- Subject 3, Grade: C, Credit: 4
+Expected TGPA: 3.0, CGPA: 6.19
+
+## Edge Cases and Validation Tests
+
+### Single Subject per Term
+Number of terms: 2
+Term 1: Single subject, Grade: O, Credit: 5
+Term 2: Single subject, Grade: F, Credit: 3
+
+### Maximum Credits Test
+Number of terms: 1
+Term 1: Single subject, Grade: A, Credit: 50
+
+### Grade Validation
+Valid grades: O, A+, A, B+, B, C, D, E, F, G, I
+Invalid grades: X, Y, Z, AB, CD (should be rejected)
+
+### Credit Validation
+Valid credits: 1, 2, 3, 4, 5, 6...
+Invalid credits: 0, -1, -5 (should be rejected)
+
+### Term Validation
+Valid terms: 1, 2, 3, 4, 5...
+Invalid terms: 0, -1 (should be rejected)
+
+## Expected Program Flow (Updated)
+1. Ask for number of terms
+2. For each term:
+   - Ask for number of subjects
+   - Input subject details
+   - Calculate and display TGPA for the term
+   - Display current CGPA (only if more than 1 term)
+   - Show performance feedback
+3. Display final summary with:
+   - Term-wise summary table
+   - "YOUR OVERALL CGPA FROM THE GIVEN N TERMS: X.XX"
+   - Statistics (highest/lowest TGPA, total credits)
+   - Overall performance feedback
+4. Ask "Do you want to add one more term? (y/n)"
+5. If yes, repeat for additional terms with updated final summary
+6. Ask if user wants to calculate for another set of terms
+
+## Display Logic
+- **Single Term (N=1)**: Shows only TGPA, no CGPA mention
+- **Multiple Terms (N>1)**: Shows both TGPA and CGPA after each term
+- **Final Message**: "YOUR OVERALL CGPA FROM THE GIVEN N TERMS: X.XX"
+- **Additional Terms**: Can be added after initial N terms are completed
